@@ -11,16 +11,16 @@ class TSEmptyContext : BehaviorContext {
     init() {}
 
     func exampleNode(type: ExampleNodeType, name: String, closure: () -> Void, location: SourceLocation) -> ExampleNode {
-        fail("\(type)() is not allowed here", file: location.file, line: location.line)
+        fail("\(type)() is not allowed here", location: location)
         return ExampleNode(type: type, name: "Invalid \(type)()", parent: nil)
     }
 
     func beforeEach(closure: () -> Void, location: SourceLocation) {
-        fail("beforeEach() is not allowed here", file: location.file, line: location.line)
+        fail("beforeEach() is not allowed here", location: location)
     }
 
     func afterEach(closure: () -> Void, location: SourceLocation)  {
-        fail("afterEach() is not allowed here", file: location.file, line: location.line)
+        fail("afterEach() is not allowed here", location: location)
     }
 }
 
@@ -89,7 +89,7 @@ class TSSpecContext : BehaviorContext {
     }
 
     func _verify(action: LogicValue, message: String, location: SourceLocation) {
-        CurrentAssertionHandler.assert(action.getLogicValue(), message: message, location: location)
+        must(action.getLogicValue(), message, location: location)
     }
 
     func exampleNode(type: ExampleNodeType, name: String, closure: () -> Void, location: SourceLocation) -> ExampleNode {

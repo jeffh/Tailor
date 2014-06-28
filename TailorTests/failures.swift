@@ -13,5 +13,5 @@ func failsWithErrorMessage(message: String, closure: () -> Void, file: String = 
             return
         }
     }
-    fail("Expected failure message '\(message)', but got message: '\(lastFailureMessage)'", file: file, line: line)
+    XCTFail("Expected failure message '\(message)', but got message: '\(lastFailureMessage)'", file: file, line: line)
 }

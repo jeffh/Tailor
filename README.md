@@ -1,12 +1,12 @@
 Tailor
 ======
 
-BDD in Swift
+Behavior Driven Developer Test Runner in Swift
 
 Setup
 -----
 
-Currently, Tailor requires an underlying testing framework. Currently it uses XCTest.
+Currently, it is easiest to add this project as a subproject and link against the framework.
 
 
 Writing Tests
@@ -30,7 +30,10 @@ matchers.
 
 
 Matchers
---------
+========
+
+**Matchers have extracted in to [Kick](https://github.com/jeffh/Kick/)**. See that project for
+more up-to-date information on how to use them.
 
 Matchers follow [Cedar's](https://github.com/pivotal/cedar) design. They're generic-based:
 
@@ -57,18 +60,6 @@ Likewise, you can use trailing-closure style as needed:
         "hello"
     }.to(equalTo("hello"))
 
-The following matchers are currently implemented:
-
-- equalTo (also == and != operators)
-- beCloseTo
-- beLessThan (also < operator)
-- beLessThanOrEqualTo (also <= operator)
-- beGreaterThan (also > operator)
-- beGreaterThanOrEqualTo (also >= operator)
-- raiseException
-- beNil
-- beTruthy: Non-nil optional values will match
-- beFalsy: Note that nil / optionals will match too
 
 Async Tests
 -----------

@@ -1,5 +1,6 @@
 import XCTest
 import Tailor
+import Kick
 
 class TailorBootstrap : TSSpec {
     override class func defineBehaviors() {
